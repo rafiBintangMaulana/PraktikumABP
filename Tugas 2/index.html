@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktik jQuery - Hide/Show dan Animasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .box2 {
+            width: 150px;
+            height: 80px;
+            background-color: #28a745;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .box3 {
+            width: 180px;
+            height: 90px;
+            background-color: #dc3545;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Praktik jQuery - Hide/Show dan Animasi</h1>
 
+    <!-- PRAKTIK 1: INSTALASI JQUERY -->
+    <div class="section">
+        <h2>Praktik 1: Instalasi jQuery</h2>
+        <p>jQuery telah diinstal menggunakan CDN dari jQuery.com</p>
+        <p>Script jQuery: &lt;script src="jquery-3.6.0.min.js"&gt;&lt;/script&gt;</p>
+        <button onclick="cekJQuery()">Cek jQuery</button>
+        <p id="hasilCek"></p>
+    </div>
+
+    <!-- PRAKTIK 2: EFEK HIDE/SHOW -->
+    <div class="section">
+        <h2>Praktik 2: Efek Hide/Show</h2>
+        <p>
+            <button onclick="showBox()">Show</button>
+            <button onclick="hideBox()">Hide</button>
+            <button onclick="toggleBox()">Toggle</button>
+        </p>
+        <div class="box" id="kotak1">Ini adalah Box 1</div>
+    </div>
+
+    <!-- PRAKTIK 3: EFEK ANIMASI -->
+    <div class="section">
+        <h2>Praktik 3: Efek Animasi</h2>
+        
+        <h3>Animasi FadeIn/FadeOut</h3>
+        <p>
+            <button onclick="fadeInBox()">Fade In</button>
+            <button onclick="fadeOutBox()">Fade Out</button>
+            <button onclick="fadeToggleBox()">Fade Toggle</button>
+        </p>
+        <div class="box2" id="kotak2" style="display: none;">Fade Effect Box</div>
+
+        <h3>Animasi SlideDown/SlideUp</h3>
+        <p>
+            <button onclick="slideDownBox()">Slide Down</button>
+            <button onclick="slideUpBox()">Slide Up</button>
+            <button onclick="slideToggleBox()">Slide Toggle</button>
+        </p>
+        <div class="box3" id="kotak3" style="display: none;">Slide Effect Box</div>
+
+        <h3>Animasi Custom</h3>
+        <p>
+            <button onclick="animateBox()">Animate (Geser Kanan)</button>
+            <button onclick="resetBox()">Reset Position</button>
+        </p>
+        <div id="kotak4" style="width: 100px; height: 60px; background-color: #ffc107; display: flex; align-items: center; justify-content: center; margin: 10px 0; position: relative;">Move Box</div>
+    </div>
+
+    <!-- SCRIPT JQUERY Di-install secara lokal -->
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <!-- SCRIPT UNTUK PRAKTIK -->
+    <script>
+        // PRAKTIK 1: Cek jQuery
+        function cekJQuery() {
+            if (typeof jQuery !== 'undefined') {
+                $("#hasilCek").text("jQuery berhasil diinstal secara lokal di direktori ini! Versi: " + jQuery.fn.jquery + " | File: jquery-3.6.0.min.js");
+            } else {
+                $("#hasilCek").text("jQuery tidak terinstal");
+            }
+        }
+
+        // PRAKTIK 2: Hide/Show
+        function showBox() {
+            $("#kotak1").show();
+        }
+
+        function hideBox() {
+            $("#kotak1").hide();
+        }
+
+        function toggleBox() {
+            $("#kotak1").toggle();
+        }
+
+        // PRAKTIK 3: Animasi Fade
+        function fadeInBox() {
+            $("#kotak2").fadeIn();
+        }
+
+        function fadeOutBox() {
+            $("#kotak2").fadeOut();
+        }
+
+        function fadeToggleBox() {
+            $("#kotak2").fadeToggle();
+        }
+
+        // PRAKTIK 3: Animasi Slide
+        function slideDownBox() {
+            $("#kotak3").slideDown();
+        }
+
+        function slideUpBox() {
+            $("#kotak3").slideUp();
+        }
+
+        function slideToggleBox() {
+            $("#kotak3").slideToggle();
+        }
+
+        // PRAKTIK 3: Animasi Custom
+        function animateBox() {
+            $("#kotak4").animate({
+                left: '200px'
+            }, 1000);
+        }
+
+        function resetBox() {
+            $("#kotak4").animate({
+                left: '0px'
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
